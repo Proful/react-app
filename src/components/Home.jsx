@@ -10,7 +10,7 @@ const Home = props => {
   // no specific render method.
   return (
     <div className="Home">
-      <h1 className="m-4">
+      <h1>
         {message}
         {name}
       </h1>

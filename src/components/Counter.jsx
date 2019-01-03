@@ -1,28 +1,41 @@
 import React, { Component } from "react";
-import Home from "./Home";
-import Content from "./Content";
 
 class Counter extends Component {
-  state = {
-    count: 0,
-    imageUrl: "https://picsum.photos/200"
-  };
+  constructor() {
+    super();
+    console.log("Counter.jsx -- Constructor");
+
+    // Constructor is the best place to init local state.
+    // place to create array, put empty string etc
+    this.state = {
+      count: 0,
+      imageUrl: ""
+    };
+  }
+
+  componentWillMount() {
+    console.log("Counter.jsx -- Component will mount");
+
+    // This is the first place where to put some default data..
+    this.setState({
+      count: 1,
+      imageUrl: "https://picsum.photos/100"
+    });
+  }
 
   render() {
     return (
       <React.Fragment>
-        <Content>
-          <Home message="Hello Mrs. " name="Clark" />
-        </Content>
-
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button className="btn btn-secondary btn-sm p-3">Increment</button>
+        <br />
+        <img src={this.state.imageUrl} alt="counter" className="mt-3" />
       </React.Fragment>
     );
   }
 
   getBadgeClasses() {
-    let classes = "badge m-4 p-3 ";
+    let classes = "badge mr-3 p-3 ";
     classes += this.state.count === 0 ? "badge-warning" : "badge-primary";
     return classes;
   }
