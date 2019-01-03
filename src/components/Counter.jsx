@@ -23,13 +23,27 @@ class Counter extends Component {
     });
   }
 
+  // Arrow function only working. normal function not working.
+  increment = e => {
+    console.log("Counter.jsx -- increment");
+
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm p-3">Increment</button>
+        <button
+          className="btn btn-secondary btn-sm p-3"
+          onClick={this.increment}
+        >
+          Increment
+        </button>
         <br />
-        <img src={this.state.imageUrl} alt="counter" className="mt-3" />
+        {/* <img src={this.state.imageUrl} alt="counter" className="mt-3" /> */}
       </React.Fragment>
     );
   }
