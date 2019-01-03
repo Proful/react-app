@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./Counter.css";
+import List from "./List";
 
 class Counter extends Component {
   constructor() {
@@ -9,7 +11,8 @@ class Counter extends Component {
     // place to create array, put empty string etc
     this.state = {
       count: 0,
-      imageUrl: ""
+      imageUrl: "",
+      countries: []
     };
   }
 
@@ -19,7 +22,8 @@ class Counter extends Component {
     // This is the first place where to put some default data..
     this.setState({
       count: 1,
-      imageUrl: "https://picsum.photos/100"
+      imageUrl: "https://picsum.photos/100",
+      countries: ["US", "AUS", "IN"]
     });
   }
 
@@ -43,6 +47,7 @@ class Counter extends Component {
           Increment
         </button>
         <br />
+        <List items={this.state.countries} />
         {/* <img src={this.state.imageUrl} alt="counter" className="mt-3" /> */}
       </React.Fragment>
     );
