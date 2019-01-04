@@ -5,7 +5,13 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
-  React.createElement("ul", {}, React.createElement("li", {}, "George")),
+  //class attribute also working, but React is giving warning
+  //better to use className, it conver to class in real HTML
+  React.createElement(
+    "ul",
+    { className: "list-group" },
+    React.createElement("li", { className: "list-group-item active" }, "George")
+  ),
   document.getElementById("root")
 );
 
