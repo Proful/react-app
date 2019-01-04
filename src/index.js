@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
-  React.createElement("h1", {}, "Programmatically React"),
+  React.createElement("ul", {}, React.createElement("li", {}, "George")),
   document.getElementById("root")
 );
 
